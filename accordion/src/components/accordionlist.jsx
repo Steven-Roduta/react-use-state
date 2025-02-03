@@ -1,24 +1,12 @@
 import languages from "../data/languages";
+import Accordion from "./accordion";
+
 export default function AccordionList() {
     return (
-    <div className="accordion-list">
-        {
-            languages.map((languages, index) => {
-                return (       
-                 <div className="accordion" key={index}>
-                    <div className="accordion__title">
-                        <h3>{languages.title}</h3>
-                    </div>
-        
-                    <button className="accordion__button">+</button>
-                    <div>{languages.description}</div>
-                </div>
-        
-                )
-            })
-        }
-
-    </div>
-
+        <div className="accordion-list">
+            {languages.map((languages, index) => (
+                <Accordion key={index} title={languages.title} description={languages.description} />
+            ))}
+        </div>
     );
 }
